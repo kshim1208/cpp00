@@ -8,14 +8,16 @@
 // class 선언 form 찾아보기
 class PhoneBook
 {
-	// private:
+	private:
 		Contact contacts[8];
 		int		contact_number;
 	public:
 		PhoneBook();
-		void	addContact();
+		int		addContact();
 		void	rotateContacts();
-		void	listContacts();
+		int		listContacts();
+		int		getContactNumber();
+		void	getIndexedContact(int index);
 };
 
 PhoneBook::PhoneBook()
@@ -24,8 +26,10 @@ PhoneBook::PhoneBook()
 	return ;
 }
 
-void	PhoneBook::addContact(void)
+int	PhoneBook::addContact(void)
 {
+	int	ret = 0;
+	
 	if (this->contact_number == 8)
 	{
 		this->rotateContacts();
@@ -33,10 +37,12 @@ void	PhoneBook::addContact(void)
 	}
 	else
 	{
-		this->contacts[this->contact_number].setContact();
+		ret = this->contacts[this->contact_number].setContact();
+		if (ret == 1)
+			return (ret);
 		this->contact_number++;
 	}
-	return ;
+	return (ret);
 }
 
 void	PhoneBook::rotateContacts(void)
@@ -51,18 +57,33 @@ void	PhoneBook::rotateContacts(void)
 	return ;
 }
 
-void	PhoneBook::listContacts(void)
+int	PhoneBook::listContacts(void)
 {
 	int	num = this->contact_number;
 
 	if (num == 0)
+	{
 		std::cout << "there are no contact right now" << std::endl;
+		return (1);
+	}
 	for (int i = 0; i < num; i++)
 	{
-		std::cout << std::setw(10) << static_cast<char>(i);
+		std::cout << std::setw(10) << i;
 		std::cout << std::setw(0) << '|';
 		this->contacts[i].listContact();
+		std::cout << std::endl;
 	}
+	return (0);
+}
+
+int	PhoneBook::getContactNumber(void)
+{
+	return (this->contact_number);
+}
+
+void	PhoneBook::getIndexedContact(int index)
+{
+	this->contacts[index].getContact();
 	return ;
 }
 
