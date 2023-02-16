@@ -5,7 +5,6 @@
 
 # include <iomanip>
 
-// class 선언 form 찾아보기
 class PhoneBook
 {
 	private:
@@ -29,7 +28,7 @@ PhoneBook::PhoneBook()
 int	PhoneBook::addContact(void)
 {
 	int	ret = 0;
-	
+
 	if (this->contact_number == 8)
 	{
 		this->rotateContacts();

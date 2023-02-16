@@ -7,6 +7,7 @@
 
 class Contact{
 	private:
+		int			my_index;
 		std::string first_name;
 		std::string last_name;
 		std::string nickname;
@@ -57,11 +58,10 @@ int	Contact::setContact(void)
 	{
 		std::cout << "input : " << field_name_array[i] << std::endl;
 		std::cin >> this->field_string_array[i];
-		std::cout << this->field_string_array[i] << std::endl;
 		if (i == 3)
 		{
 			// phone_number 관련 특수 동작 - 숫자 들어왔는가? string 함수에서 isdigit 계통 같이 깔끔하게 쓰는 법?
-			return (1);
+			// return (0);
 		}
 	}
 	return (0);

@@ -45,7 +45,7 @@ int	ft_phone_book_prompt(PhoneBook &phone_book)
 	}
 	else
 	{
-		std::cout << "unappropriate command" << std::endl;
+		std::cout << "inappropriate command" << std::endl;
 		std::cout << "appropriate command - ADD, SEARCH, EXIT" << std::endl;
 	}
 	return (0);
@@ -59,6 +59,5 @@ int main(void)
 
 	while (exit == 0)
 		exit = ft_phone_book_prompt(phone_book);
-	// system("leaks AwesomePhoneBook");
 	return (0);
 }
