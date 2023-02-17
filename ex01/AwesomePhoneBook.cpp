@@ -5,15 +5,32 @@
 
 int ft_search_prompt(PhoneBook &phone_book)
 {
-	int index;
+	int index = -1;
 
 	std::cout << "wait for index" << std::endl;
 	std::cout << "command : ";
 	std::cin >> index;
+	if (std::cin.eof())
+	{
+		std::cout << std::endl << "EOF" << std::endl;
+		return (1);
+	}
+	if (std::cin.fail())
+	{
+		std::cout << "input is not integer" << std::endl;
+		std::cin.clear();
+		std::cin.ignore(INT_MAX, '\n');
+		return (1);
+	}
 	if (index >= 0 && index <= (phone_book.getContactNumber() - 1))
 	{
 		phone_book.getIndexedContact(index);
 		return (0);
+	}
+	else
+	{
+		std::cout << "inappropriate index" << std::endl;
+		return (1);
 	}
 	return (1);
 }
@@ -26,6 +43,11 @@ int	ft_phone_book_prompt(PhoneBook &phone_book)
 	std::cout << "wait for command" << std::endl;
 	std::cout << "command : ";
 	std::cin >> input;
+	if (std::cin.eof())
+	{
+		std::cout << std::endl << "EOF" << std::endl;
+		return (1);
+	}
 	if (input == "ADD")
 	{
 		std::cout << "mode : ADD" << std::endl;

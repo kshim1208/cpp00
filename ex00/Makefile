@@ -1,6 +1,6 @@
 NAME = megaphone
 CPPC = c++
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -std=C++98
 RM = rm
 RMFLAGS = -f
 

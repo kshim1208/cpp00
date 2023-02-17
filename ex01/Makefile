@@ -1,10 +1,10 @@
 NAME = AwesomePhoneBook
 CPPC = c++
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra -std=c++98
 RM = rm
 RMFLAGS = -f
 
-SRCS = AwesomePhoneBook.cpp
+SRCS = AwesomePhoneBook.cpp Contact.cpp PhoneBook.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
